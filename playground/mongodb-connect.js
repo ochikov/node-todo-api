@@ -9,7 +9,7 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp', (err, client) => {
 	console.log('Success connected!');
 	const db = client.db('TodoApp');
 	// db.collection('Todos').insertOne({
-	// 	text: 'Something to do',
+	// 	text: 'Eat lunch',
 	// 	completed: 'false'
 	// }, (err, result) => {
 	// 	if (err) {
@@ -20,16 +20,16 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp', (err, client) => {
 	// 	console.log(JSON.stringify(result.ops, undefined, 2));
 	// })
 
-	// db.collection('Users').insertOne({
-	// 	name: 'Ogi',
-	// 	age: 25,
-	// 	location: 'Botevgrad'
-	// }, (err, result) => {
-	// 	if (err) {
-	// 		console.log('Unable to insert user in users', err);
-	// 		return;
-	// 	}
-	// 	console.log(JSON.stringify(result.ops[0]._id.getTimestamp(), undefined, 2));
-	// });
+	db.collection('Users').insertOne({
+		name: 'Ogi',
+		age: 25,
+		location: 'Botevgrad'
+	}, (err, result) => {
+		if (err) {
+			console.log('Unable to insert user in users', err);
+			return;
+		}
+		console.log(JSON.stringify(result.ops[0]._id.getTimestamp(), undefined, 2));
+	});
 	client.close();
 });
