@@ -59,7 +59,7 @@ app.delete('/todos/:id', (req, res) => {
 	}).catch((error) => {
 		res.status(400).send({ error: 'Unable to fetch the todo' });
 	})
-})
+});
 
 
 app.listen(port, () => {
